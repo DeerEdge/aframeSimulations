@@ -1,64 +1,72 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<title>A-Frame: Physics component</title>
-	<meta name="description" content="A-Frame Examples">
-	<script src="js/aframe-master.1.0.4.min.js"></script>
-	<script src="js/aframe-environment-component.min-old.js"></script>
-	<script src="js/aframe-physics-system.min.js"></script>
-
+    <meta charset="utf-8">
+    <title>Abstract Cell Laboratory - WASD Navigation</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
 </head>
-
 <body>
+    <a-scene background="color: #000000">
+        <!-- Abstract Cell Components -->
+        <a-entity id="cell-container" position="0 1.5 -4">
+            <!-- Nucleus -->
+            <a-entity position="0 0 0">
+                <a-torus-knot color="#FF6B6B" radius="0.5" radius-tubular="0.1" p="2" q="3" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-torus-knot>
+                <a-text value="Nucleus" position="0 0.8 0" align="center" color="#FFFFFF" scale="0.5 0.5 0.5" look-at="#camera"></a-text>
+            </a-entity>
 
-<!-- https://github.com/supermedium/aframe-environment-component
-<a-scene environment="preset: default;"> -->
+            <!-- Membrane -->
+            <a-entity>
+                <a-icosahedron color="#4ECDC4" radius="1.5" wireframe="true" animation="property: rotation; to: 360 360 0; loop: true; dur: 15000"></a-icosahedron>
+                <a-text value="Cell Membrane" position="0 2 0" align="center" color="#FFFFFF" scale="0.5 0.5 0.5" look-at="#camera"></a-text>
+            </a-entity>
 
-<a-scene environment="preset: default;" physics="debug: true;">
+            <!-- Mitochondria -->
+            <a-entity position="-0.8 0.5 0.5">
+                <a-octahedron color="#FF9FF3" radius="0.3" animation="property: position; to: 0 0.2 0; dir: alternate; dur: 1000; loop: true"></a-octahedron>
+                <a-text value="Mitochondrion" position="0 0.5 0" align="center" color="#FFFFFF" scale="0.3 0.3 0.3" look-at="#camera"></a-text>
+            </a-entity>
 
-	<a-assets>
-		<img id="crate" src="images/crate.jpg" />
-		<img id="pixels" src="images/pixels.png" />
-		<img id="ball" src="images/basketball-gray.png" />
-	</a-assets>
+            <!-- Endoplasmic Reticulum -->
+            <a-entity position="0 -0.5 0">
+                <a-box color="#45D3D3" width="1.5" height="0.05" depth="0.05" position="0 0 0"></a-box>
+                <a-box color="#45D3D3" width="0.05" height="0.5" depth="0.05" position="0.7 0.25 0"></a-box>
+                <a-box color="#45D3D3" width="0.05" height="0.5" depth="0.05" position="-0.7 0.25 0"></a-box>
+                <a-text value="Endoplasmic Reticulum" position="0 -0.3 0" align="center" color="#FFFFFF" scale="0.3 0.3 0.3" look-at="#camera"></a-text>
+            </a-entity>
 
-	<!-- camera -->
-	<a-entity camera look-controls wasd-controls="acceleration:10" position="0 1.6 0"></a-entity>
+            <!-- Golgi Apparatus -->
+            <a-entity position="0.8 0.5 0" rotation="0 30 0">
+                <a-ring color="#FCE38A" radius-inner="0.2" radius-outer="0.3" position="0 0 0"></a-ring>
+                <a-ring color="#FCE38A" radius-inner="0.15" radius-outer="0.25" position="0 0.1 0"></a-ring>
+                <a-ring color="#FCE38A" radius-inner="0.1" radius-outer="0.2" position="0 0.2 0"></a-ring>
+                <a-text value="Golgi Apparatus" position="0 0.5 0" align="center" color="#FFFFFF" scale="0.3 0.3 0.3" look-at="#camera"></a-text>
+            </a-entity>
 
-  <!-- Floor -->
-  <a-plane static-body position="0 0.02 0" rotation="90 0 0" width="20" height="20" material="src: #crate; repeat: 10 10; transparent: true; opacity: 0.5; side:double;"></a-plane>
+            <!-- Ribosomes -->
+            <a-entity>
+                <a-entity particle-system="preset: dust; particleCount: 500; color: #F38181, #95E1D3; size: 0.05,0.1; accelerationValue: 0.1 0.1 0.1; velocityValue: 0.1 0.1 0.1"></a-entity>
+                <a-text value="Ribosomes" position="0 -1.5 0" align="center" color="#FFFFFF" scale="0.5 0.5 0.5" look-at="#camera"></a-text>
+            </a-entity>
+        </a-entity>
 
-  <a-plane static-body position="0 0.51 -10" rotation="0 0 0" width="20" height="1" material="src: #crate; repeat: 20 1; transparent: true; opacity: 0.5; side:double;"></a-plane>
+        <!-- Lighting -->
+        <a-light type="ambient" color="#BBB" intensity="0.5"></a-light>
+        <a-light type="point" color="#FFF" intensity="0.8" position="0 3 0"></a-light>
 
-  <a-plane static-body position="0 0.51 10" rotation="0 0 0" width="20" height="1" material="src: #crate; repeat: 20 1; transparent: true; opacity: 0.5; side:double;"></a-plane>
+        <!-- Camera with WASD controls -->
+        <a-entity id="rig" position="0 1.6 5">
+            <a-camera id="camera" wasd-controls="acceleration: 65" look-controls></a-camera>
+        </a-entity>
 
-  <a-plane static-body position="-10 0.51 0" rotation="0 90 0" width="20" height="1" material="src: #crate; repeat: 20 1; transparent: true; opacity: 0.5; side:double;"></a-plane>
+        <!-- Instructions -->
+        <a-entity position="0 3 -4">
+            <a-text value="Use WASD to move and mouse to look around" align="center" color="#FFFFFF" scale="0.5 0.5 0.5"></a-text>
+        </a-entity>
 
-  <a-plane static-body position="10 0.51 0" rotation="0 90 0" width="20" height="1" material="src: #crate; repeat: 20 1; transparent: true; opacity: 0.5; side:double;"></a-plane>
-
-  <!-- Dynamic objects -->
-  <a-box dynamic-body position="-5 3 -5" rotation="10 20 30" material="src:#crate;"></a-box>
-
-  <a-cylinder dynamic-body position="-3 3 -5" rotation="5 10 15" radius="0.25" height="1" color="cyan"></a-cylinder>
-
-  <a-entity dynamic-body="shape: hull;" geometry="primitive: icosahedron; radius: 0.5;" position="-1 3 -5" material="src: #pixels; repeat: 10 10;"></a-entity>
-
-  <a-sphere dynamic-body position="1 6 -5" radius="0.5" material="src:#ball; color:red;"></a-sphere>
-
-  <a-sphere dynamic-body position="2.5 6 -5.1" radius="0.5" material="src:#ball; color:orange;"></a-sphere>
-
-  <a-sphere dynamic-body position="3 4 -5" radius="0.5" material="src:#ball; color:yellow;"></a-sphere>
-
-  <a-sphere dynamic-body position="3.5 8 -4.8" radius="0.5" material="src:#ball; color:green;"></a-sphere>
-
-
-  <a-sphere dynamic-body position="5 2 -5" radius="0.5" material="src:#ball; color:blue;"></a-sphere>
-
-
-
-</a-scene>
-
-
+        <!-- Invisible floor to walk on -->
+        <a-plane position="0 0 0" rotation="-90 0 0" width="20" height="20" color="#000000" opacity="0.0"></a-plane>
+    </a-scene>
 </body>
 </html>
