@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- Environment -->
+      <a-sky color="#87CEEB"></a-sky>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="20" height="20" color="#7BC8A4"></a-plane>
 
+      <!-- Camera and controls -->
+      <a-entity id="rig" position="0 1.6 0">
+        <a-camera></a-camera>
+        <a-entity cursor="rayOrigin: mouse"></a-entity>
+        <a-entity laser-controls="hand: right"></a-entity>
+      </a-entity>
+
+      <!-- Unit Circle -->
+      <a-entity id="unit-circle" position="0 1.6 -4">
+        <!-- Circle -->
+        <a-circle id="circle" radius="1" color="white" opacity="0.5"></a-circle>
+
+        <!-- X and Y axes -->
+        <a-entity line="start: -1.5 0 0; end: 1.5 0 0; color: red"></a-entity>
+        <a-entity line="start: 0 -1.5 0; end: 0 1.5 0; color: green"></a-entity>
+
+        <!-- Special angles -->
+        <a-entity id="angle-0" position="1 0 0">
+          <a-sphere radius="0.05" color="blue"></a-sphere>
+          <a-text value="0°" position="0.1 0.1 0" scale="0.5 0.5 0.5"></a-text>
+        </a-entity>
+        <a-entity id="angle-90" position="0 1 0">
+          <a-sphere radius="0.05" color="blue"></a-sphere>
+          <a-text value="90°" position="0.1 0.1 0" scale="0.5 0.5 0.5"></a-text>
+        </a-entity>
+        <a-entity id="angle-180" position="-1 0 0">
+          <a-sphere radius="0.05" color="blue"></a-sphere>
+          <a-text value="180°" position="-0.3 0.1 0" scale="0.5 0.5 0.5"></a-text>
+        </a-entity>
+        <a-entity id="angle-270" position="0 -1 0">
+          <a-sphere radius="0.05" color="blue"></a-sphere>
+          <a-text value="270°" position="0.1 -0.2 0" scale="0.5 0.5 0.5"></a-text>
+        </a-entity>
+      </a-entity>
+
+      <!-- Information Panel -->
+      <a-entity id="info-panel" position="0 5 -4" rotation="15 0 0">
+        <a-plane width="4" height="2" color="white">
+          <a-text id="circle-info" value="Click on points to see Unit Circle properties" align="center" color="black" width="3.5"></a-text>
+        </a-plane>
+      </a-entity>
+    </a-scene>
+
+    <script>
+      // Unit Circle properties
+      const circleProperties = {
+        circle: "The Unit Circle has a radius of 1 and is centered at the origin (0,0). It's used to define trigonometric functions for any angle.",
+        "angle-0": "At 0° (0 radians): sin(0) = 0, cos(0) = 1, tan(0) = 0",
+        "angle-90": "At 90° (π/2 radians): sin(90°) = 1, cos(90°) = 0, tan(90°) is undefined",
+        "angle-180": "At 180° (π radians): sin(180°) = 0, cos(180°) = -1, tan(180°) = 0",
+        "angle-270": "At 270° (3π/2 radians): sin(270°) = -1, cos(270°) = 0, tan(270°) is undefined"
+      };
+
+      // Add click event listeners
+      document.querySelectorAll('#circle, #angle-0, #angle-90, #angle-180, #angle-270').forEach(element => {
+        element.addEventListener('click', function() {
+          const elementId = this.id;
+          document.querySelector('#circle-info').setAttribute('value', circleProperties[elementId]);
+        });
+      });
+    </script>
+  </body>
+</html>
