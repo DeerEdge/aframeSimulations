@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="mona-lisa" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1280px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg">
+        <img id="birth-of-venus" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/2560px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg">
+        <img id="school-of-athens" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg/2560px-%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg">
+        <img id="creation-of-adam" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg/2560px-Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg">
+      </a-assets>
 
+      <!-- Environment -->
+      <a-sky color="#87CEEB"></a-sky>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="50" height="50" color="#87CEEB"></a-plane>
+
+      <!-- Lighting -->
+      <a-entity light="type: ambient; color: #FFF; intensity: 1.0"></a-entity>
+      <a-entity light="type: directional; color: #FFF; intensity: 0.8" position="-1 1 1"></a-entity>
+
+      <!-- Artworks and Descriptions -->
+      <a-entity position="-18 3 -15">
+        <a-image src="#mona-lisa" width="4" height="6"></a-image>
+        <a-entity position="7 0 0">
+          <a-plane color="white" width="7" height="5"></a-plane>
+          <a-text value="Mona Lisa (c. 1503-1506)
+by Leonardo da Vinci
+
+This iconic portrait is renowned
+for its enigmatic smile and
+innovative techniques like sfumato.
+
+Da Vinci's masterpiece exemplifies
+High Renaissance art, blending
+realism with subtle idealization."
+            position="0 0 0.01" width="6.5" wrap-count="30" color="black" align="center"></a-text>
+        </a-entity>
+      </a-entity>
+
+      <a-entity position="-18 3 -5">
+        <a-image src="#birth-of-venus" width="8" height="5"></a-image>
+        <a-entity position="9 0 0">
+          <a-plane color="white" width="7" height="5"></a-plane>
+          <a-text value="The Birth of Venus (c. 1485)
+by Sandro Botticelli
+
+This mythological painting depicts
+Venus emerging from the sea.
+
+Botticelli's work represents the
+revival of classical culture in
+Renaissance Florence, blending
+pagan themes with Christian ideals."
+            position="0 0 0.01" width="6.5" wrap-count="30" color="black" align="center"></a-text>
+        </a-entity>
+      </a-entity>
+
+      <a-entity position="2 3 -15">
+        <a-image src="#school-of-athens" width="8" height="5"></a-image>
+        <a-entity position="9 0 0">
+          <a-plane color="white" width="7" height="5"></a-plane>
+          <a-text value="The School of Athens (1509-1511)
+by Raphael
+
+This fresco showcases the great
+thinkers of classical antiquity.
+
+Raphael's masterpiece embodies
+Renaissance ideals of humanism,
+rationality, and the revival of
+classical learning."
+            position="0 0 0.01" width="6.5" wrap-count="30" color="black" align="center"></a-text>
+        </a-entity>
+      </a-entity>
+
+      <a-entity position="2 3 -5">
+        <a-image src="#creation-of-adam" width="8" height="4"></a-image>
+        <a-entity position="9 0 0">
+          <a-plane color="white" width="7" height="5"></a-plane>
+          <a-text value="The Creation of Adam (c. 1512)
+by Michelangelo
+
+Part of the Sistine Chapel ceiling,
+this fresco depicts God giving life
+to Adam.
+
+Michelangelo's work represents the
+pinnacle of High Renaissance art,
+blending classical and Christian
+themes with unparalleled skill."
+            position="0 0 0.01" width="6.5" wrap-count="30" color="black" align="center"></a-text>
+        </a-entity>
+      </a-entity>
+
+      <!-- Camera -->
+      <a-entity position="0 1.6 10">
+        <a-camera>
+          <a-cursor color="#FFFFFF"></a-cursor>
+        </a-camera>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
