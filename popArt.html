@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="whaam" src="https://upload.wikimedia.org/wikipedia/en/b/b7/Roy_Lichtenstein_Whaam.jpg">
+        <img id="campbell" src="https://upload.wikimedia.org/wikipedia/en/9/95/Warhol-Campbell_Soup-1-screenprint-1968.jpg">
+        <img id="drowning-girl" src="https://upload.wikimedia.org/wikipedia/en/d/df/Roy_Lichtenstein_Drowning_Girl.jpg">
+      </a-assets>
 
+      <!-- Environment -->
+      <a-sky color="#87CEEB"></a-sky>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="50" height="50" color="#87CEEB"></a-plane>
+
+      <!-- Lighting -->
+      <a-entity light="type: ambient; color: #FFF; intensity: 1.0"></a-entity>
+      <a-entity light="type: directional; color: #FFF; intensity: 0.8" position="-1 1 1"></a-entity>
+
+      <!-- Artworks and Descriptions -->
+      <a-entity position="-18 3 -15">
+        <a-image src="#whaam" width="8" height="4"></a-image>
+        <a-entity position="9 0 0">
+          <a-plane color="white" width="7" height="4"></a-plane>
+          <a-text value="Whaam! (1963)
+by Roy Lichtenstein
+
+This iconic work depicts a fighter
+jet firing a rocket. It exemplifies
+Lichtenstein's comic book style and
+explores themes of war, heroism,
+and media representation in the
+context of the Cold War era."
+            position="0 0 0.01" width="6.5" wrap-count="30" color="black" align="center"></a-text>
+        </a-entity>
+      </a-entity>
+
+      <a-entity position="-18 3 -5">
+        <a-image src="#campbell" width="3" height="4"></a-image>
+        <a-entity position="9 0 0">
+          <a-plane color="white" width="7" height="4"></a-plane>
+          <a-text value="Campbell's Soup Cans (1962)
+by Andy Warhol
+
+This series of paintings features
+32 Campbell's Soup cans, each
+representing a flavor. It's one of
+Warhol's most famous works,
+challenging the boundary between
+commercial and fine art."
+            position="0 0 0.01" width="6.5" wrap-count="30" color="black" align="center"></a-text>
+        </a-entity>
+      </a-entity>
+
+      <a-entity position="2 3 -10">
+        <a-image src="#drowning-girl" width="6" height="6"></a-image>
+        <a-entity position="7 0 0">
+          <a-plane color="white" width="7" height="6"></a-plane>
+          <a-text value="Drowning Girl (1963)
+by Roy Lichtenstein
+
+This painting, based on a comic
+book image, shows a crying woman
+in turbulent water. It exemplifies
+Lichtenstein's style and explores
+themes of melodrama and gender
+roles in popular culture."
+            position="0 0 0.01" width="6.5" wrap-count="30" color="black" align="center"></a-text>
+        </a-entity>
+      </a-entity>
+
+      <!-- Camera -->
+      <a-entity position="0 1.6 10">
+        <a-camera>
+          <a-cursor color="#FFFFFF"></a-cursor>
+        </a-camera>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
