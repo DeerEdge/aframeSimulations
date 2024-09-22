@@ -1,1 +1,44 @@
+<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+<a-scene background="color: #000000"> <!-- Dark background -->
+  <!-- Camera and controls -->
+  <a-entity position="0 1.6 0">
+    <a-camera>
+      <a-cursor></a-cursor>
+    </a-camera>
+  </a-entity>
 
+  <!-- DNA strand -->
+  <a-entity id="dna-strand" position="0 1.5 -3">
+    <!-- Base pairs -->
+    <a-sphere position="-0.2 0 0" radius="0.1" color="red"></a-sphere>
+    <a-text value="Adenine (A)" position="-1 0 0" color="white" scale="0.5 0.5 0.5"></a-text>
+
+    <a-sphere position="0.2 0 0" radius="0.1" color="blue"></a-sphere>
+    <a-text value="Thymine (T)" position="0.4 0 0" color="white" scale="0.5 0.5 0.5"></a-text>
+
+    <a-sphere position="-0.2 0.3 0" radius="0.1" color="green"></a-sphere>
+    <a-text value="Guanine (G)" position="-1 0.3 0" color="white" scale="0.5 0.5 0.5"></a-text>
+
+    <a-sphere position="0.2 0.3 0" radius="0.1" color="yellow"></a-sphere>
+    <a-text value="Cytosine (C)" position="0.4 0.3 0" color="white" scale="0.5 0.5 0.5"></a-text>
+
+    <!-- Sugar-phosphate backbone -->
+    <a-cylinder position="-0.2 0.15 0" radius="0.02" height="0.3" color="gray"></a-cylinder>
+    <a-text value="Sugar-phosphate backbone" position="-1.9 0.15 0" color="white" scale="0.5 0.5 0.5"></a-text>
+
+    <a-cylinder position="0.2 0.15 0" radius="0.02" height="0.3" color="gray"></a-cylinder>
+    <a-text value="Sugar-phosphate backbone" position="0.6 0.15 0" color="white" scale="0.5 0.5 0.5"></a-text>
+
+    <!-- Hydrogen bonds -->
+    <a-cylinder position="0 0 0" radius="0.01" height="0.4" rotation="0 0 90" color="white"></a-cylinder>
+    <a-cylinder position="0 0.3 0" radius="0.01" height="0.4" rotation="0 0 90" color="white"></a-cylinder>
+    <a-text value="Hydrogen bonds" position="0 -0.2 0" color="white" scale="0.5 0.5 0.5" align="center"></a-text>
+  </a-entity>
+
+  <!-- General information panel -->
+  <a-text value="DNA Strand Analysis"
+          position="0 2.5 -3"
+          color="#FFFFFF"
+          align="center"
+          scale="1.5 1.5 1.5"></a-text>
+</a-scene>
