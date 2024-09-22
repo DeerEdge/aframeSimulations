@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="persistence" src="https://upload.wikimedia.org/wikipedia/en/d/dd/The_Persistence_of_Memory.jpg">
+        <img id="starry-night" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg">
+        <img id="kandinsky" src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Vassily_Kandinsky%2C_1913_-_Composition_7.jpg">
+        <img id="mondrian" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Piet_Mondriaan%2C_1930_-_Mondrian_Composition_II_in_Red%2C_Blue%2C_and_Yellow.jpg/1280px-Piet_Mondriaan%2C_1930_-_Mondrian_Composition_II_in_Red%2C_Blue%2C_and_Yellow.jpg">
+      </a-assets>
 
+      <!-- Environment -->
+      <a-sky color="#87CEEB"></a-sky>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="50" height="50" color="#87CEEB"></a-plane>
+
+      <!-- Lighting -->
+      <a-entity light="type: ambient; color: #FFF; intensity: 1.0"></a-entity>
+      <a-entity light="type: directional; color: #FFF; intensity: 0.8" position="-1 1 1"></a-entity>
+
+      <!-- Artworks and Descriptions -->
+      <a-entity position="-18 3 -15">
+        <a-image src="#persistence" width="6" height="4.5"></a-image>
+        <a-entity position="7 0 0">
+          <a-plane color="white" width="7" height="4.5"></a-plane>
+          <a-text value="The Persistence of Memory (1931)
+by Salvador Dalí
+
+Surrealist masterpiece featuring
+melting clocks in a dreamlike
+landscape, symbolizing the
+fluidity of time in dreams.
+
+This iconic work challenges our
+perception of reality and time."
+            position="0 0 0.01" width="6.5" wrap-count="30" color="black" align="center"></a-text>
+        </a-entity>
+      </a-entity>
+
+      <a-entity position="-18 3 -5">
+        <a-image src="#starry-night" width="6" height="4.8"></a-image>
+        <a-entity position="7 0 0">
+          <a-plane color="white" width="7" height="4.8"></a-plane>
+          <a-text value="The Starry Night (1889)
+by Vincent van Gogh
+
+Post-Impressionist painting
+depicting a night scene with
+swirling clouds, stars, and a
+crescent moon over a village.
+
+Van Gogh's emotional and
+vibrant style is evident in
+the turbulent brushstrokes."
+            position="0 0 0.01" width="6.5" wrap-count="30" color="black" align="center"></a-text>
+        </a-entity>
+      </a-entity>
+
+      <a-entity position="2 3 -15">
+        <a-image src="#kandinsky" width="6" height="4.5"></a-image>
+        <a-entity position="7 0 0">
+          <a-plane color="white" width="7" height="4.5"></a-plane>
+          <a-text value="Composition VII (1913)
+by Wassily Kandinsky
+
+Abstract expressionist work
+considered the pinnacle of
+Kandinsky's pre-war artistic
+achievement.
+
+The painting uses a complex
+array of colors and forms to
+create a dynamic composition."
+            position="0 0 0.01" width="6.5" wrap-count="30" color="black" align="center"></a-text>
+        </a-entity>
+      </a-entity>
+
+      <a-entity position="2 3 -5">
+        <a-image src="#mondrian" width="4.5" height="4.5"></a-image>
+        <a-entity position="7 0 0">
+          <a-plane color="white" width="7" height="4.5"></a-plane>
+          <a-text value="Composition II in Red, Blue,
+and Yellow (1930)
+by Piet Mondrian
+
+Neo-plasticist painting using
+only primary colors and
+non-colors in rectangular forms.
+
+Mondrian's work embodies the
+principles of De Stijl, reducing
+visual elements to their essence."
+            position="0 0 0.01" width="6.5" wrap-count="30" color="black" align="center"></a-text>
+        </a-entity>
+      </a-entity>
+
+      <!-- Camera -->
+      <a-entity position="0 1.6 10">
+        <a-camera>
+          <a-cursor color="#FFFFFF"></a-cursor>
+        </a-camera>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
