@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- Environment -->
+      <a-sky color="#87CEEB"></a-sky>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="20" height="20" color="#7BC8A4"></a-plane>
 
+      <!-- Camera and controls -->
+      <a-entity id="rig" position="0 1.6 0">
+        <a-camera></a-camera>
+        <a-entity cursor="rayOrigin: mouse"></a-entity>
+        <a-entity laser-controls="hand: right"></a-entity>
+      </a-entity>
+
+      <!-- 2D Shapes -->
+      <a-entity id="shapes-container" position="-5 2 -5">
+        <!-- Square -->
+        <a-box id="square" position="0 0 0" width="1" height="1" depth="0.1" color="red">
+          <a-text value="Square" position="0.6 0 0.1" scale="0.5 0.5 0.5"></a-text>
+        </a-box>
+
+        <!-- Circle -->
+        <a-circle id="circle" position="2 0 0" radius="0.5" color="blue">
+          <a-text value="Circle" position="0.6 0 0.1" scale="0.5 0.5 0.5"></a-text>
+        </a-circle>
+
+        <!-- Triangle -->
+        <a-triangle id="triangle" position="4 0 0" vertex-a="0 1 0" vertex-b="-1 -1 0" vertex-c="1 -1 0" color="green">
+          <a-text value="Triangle" position="0.6 0 0.1" scale="0.5 0.5 0.5"></a-text>
+        </a-triangle>
+
+        <!-- Rectangle -->
+        <a-box id="rectangle" position="6 0 0" width="2" height="1" depth="0.1" color="yellow">
+          <a-text value="Rectangle" position="1.2 0 0.1" scale="0.5 0.5 0.5"></a-text>
+        </a-box>
+      </a-entity>
+
+      <!-- Information Panel -->
+      <a-entity id="info-panel" position="5.165 2 -2.733" rotation="-4.852 -40.34 0">
+        <a-plane width="4" height="2" color="white">
+          <a-text id="shape-info" value="Click on a shape to see its properties" align="center" color="black" width="3.5"></a-text>
+        </a-plane>
+      </a-entity>
+    </a-scene>
+
+    <script>
+      // Shape properties
+      const shapeProperties = {
+        square: "4 equal sides, 4 right angles (90°), opposite sides parallel",
+        circle: "No sides or angles, constant curvature, all points equidistant from center",
+        triangle: "3 sides, 3 angles, sum of angles always 180°",
+        rectangle: "4 sides, 4 right angles (90°), opposite sides equal and parallel"
+      };
+
+      // Add click event listeners to shapes
+      document.querySelectorAll('#square, #circle, #triangle, #rectangle').forEach(shape => {
+        shape.addEventListener('click', function() {
+          const shapeId = this.id;
+          document.querySelector('#shape-info').setAttribute('value', `${shapeId.charAt(0).toUpperCase() + shapeId.slice(1)}: ${shapeProperties[shapeId]}`);
+        });
+      });
+    </script>
+  </body>
+</html>
