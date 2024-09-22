@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <style>
+      body { margin: 0; overflow: hidden; }
+    </style>
+  </head>
+  <body>
+    <a-scene background="color: #1a1a1a">
+      <!-- Camera and cursor -->
+      <a-entity position="0 1.6 0">
+        <a-camera>
+          <a-cursor></a-cursor>
+        </a-camera>
+      </a-entity>
 
+      <!-- Cell wall -->
+      <a-sphere position="0 1.6 -8" radius="5" color="#8B4513" opacity="0.5">
+        <a-text value="Cell Wall" position="0 5.2 0" scale="1 1 1" align="center"></a-text>
+      </a-sphere>
+
+      <!-- Cell membrane -->
+      <a-sphere position="0 1.6 -8" radius="4.8" color="#FFA07A" opacity="0.7">
+        <a-text value="Cell Membrane" position="0 5 0" scale="1 1 1" align="center"></a-text>
+      </a-sphere>
+
+      <!-- Nucleus -->
+      <a-sphere position="-1 2 -6" radius="1" color="#4682B4">
+        <a-text value="Nucleus" position="0 1.2 0" scale="0.7 0.7 0.7" align="center"></a-text>
+      </a-sphere>
+
+      <!-- Chloroplast -->
+      <a-entity position="1.5 3 -7">
+        <a-sphere radius="0.7" color="#228B22"></a-sphere>
+        <a-text value="Chloroplast" position="0 0.9 0" scale="0.6 0.6 0.6" align="center"></a-text>
+      </a-entity>
+
+      <!-- Mitochondrion -->
+      <a-entity position="-1.5 0 -7">
+        <a-cylinder radius="0.4" height="1" color="#FF4500"></a-cylinder>
+        <a-text value="Mitochondrion" position="0 0.7 0" scale="0.6 0.6 0.6" align="center"></a-text>
+      </a-entity>
+
+      <!-- Vacuole -->
+      <a-sphere position="1 1 -9" radius="2" color="#87CEEB" opacity="0.6">
+        <a-text value="Vacuole" position="0 2.2 0" scale="0.8 0.8 0.8" align="center"></a-text>
+      </a-sphere>
+
+      <!-- Endoplasmic reticulum -->
+      <a-entity position="0 -1 -7">
+        <a-box width="3" height="0.3" depth="0.3" color="#FFD700"></a-box>
+        <a-text value="Endoplasmic Reticulum" position="0 0.5 0" scale="0.6 0.6 0.6" align="center"></a-text>
+      </a-entity>
+
+      <!-- Golgi apparatus -->
+      <a-entity position="-2 2 -7">
+        <a-box width="1.5" height="0.5" depth="0.3" color="#DA70D6"></a-box>
+        <a-text value="Golgi Apparatus" position="0 0.7 0" scale="0.6 0.6 0.6" align="center"></a-text>
+      </a-entity>
+
+      <!-- Instructions -->
+      <a-text value="Use WASD keys to move, and mouse to look around." position="-3 4 -5" scale="0.7 0.7 0.7"></a-text>
+    </a-scene>
+  </body>
+</html>
